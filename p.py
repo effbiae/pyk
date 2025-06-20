@@ -1,5 +1,4 @@
-m=["av;","['/\\",":+-*%!&|<>=~,^#_$?@.",";)]\n "]
-c=dict([(chr(x),' ')for x in range(128)])
+P=":+-*%!&|<>=~,^#_$?@.";m=["av;","['/\\",P,";)]\n "];c=dict([(chr(x),' ')for x in range(128)])
 def f(x,s):
  for a in s:c[a]=x
 for i in range(3):f(m[0][i],m[i+1])

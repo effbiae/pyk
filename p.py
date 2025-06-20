@@ -48,9 +48,7 @@ def lex(x):
   else:r.append(x[i])
   i+=1
  return r
-def p(x):
- global s,i;s=lex('['+x);i=0;r=t()
- return r if len(r)>1 else ()
+def p(x):global s,i;s=lex('['+x);i=0;return t()
 def test():
     import sys
     if 0: #generate test cases
@@ -60,6 +58,7 @@ def test():
         print(']')
     for x,y in [
         [          '',() ],
+        [         '1','1'],
         [       'x;y',('[', 'x', 'y') ],
         [     '(x;y)',('(', 'x', 'y') ],
         [    'f[x;y]',('f', 'x', 'y') ],

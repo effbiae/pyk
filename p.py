@@ -18,7 +18,7 @@ def E(x):
  return x
 def t():
  if q():return()
- x=n()if'('!=s[i]else x[1]if 3>len(x:=E(s[i]))else x
+ x=n()if not s[i][0]in'([{'else x[1]if 3>len(x:=E(s[i]))else x
  while'a'==cs(i):
   x=E(x)if'['==s[i]else(n(),x)
  return x
@@ -27,9 +27,7 @@ def verb(x):#primitive or derived verb?
  return len(x)>0 and type(x[0])==str and c[x[0]]=='a'
 def train(x):#is train? if a verb or projection or composition
  if verb(x):return 1
- if type(x)==tuple:
-  if len(x)==3:return x[0]=="'"or x[2]==()
- return 0
+ return type(x)==tuple and len(x)==3 and(x[0]=="'"or x[2]==())
 def o3(x,y,z):
  if train(z):return("'",(x,y,()),z)
  return (x,y,z)
@@ -51,10 +49,9 @@ def lex(x):
   else:r.append(x[i])
   i+=1
  return r
-def parse(x):
- global s,i;s=lex('('+x);i=0;r=t()
- if type(r)==tuple and len(r)and x[0]!='('and r[0]=='(':r=('[',)+r[1:]
- return r
+def p(x):
+ global s,i;s=lex('['+x);i=0;r=t()
+ return r if len(r)>1 else ()
 def test():
     import sys
     if 0: #generate test cases
@@ -80,6 +77,6 @@ def test():
         ['5(+\\|:)\\x',(('\\', ("'", ('\\', '+'), '|:')), '5', 'x') ],
         [    'f::x,0',('::', 'f', (',', 'x', '0')) ],
         ]:
-        if (r:=parse(x))!=y:print('!',repr(x),repr(r),'!=',y);sys.exit(1)
+        if (r:=p(x))!=y:print('!',repr(x),repr(r),'!=',y);sys.exit(1)
 if __name__=='__main__':
  test()

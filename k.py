@@ -3,6 +3,8 @@ def ev(x):
  try:return int(x)
  except:pass
  if x[0]=='!':return range(ev(x[1]))
+ if type(x[0])==tuple:
+  if len(x)==2:return adv(x[0],0,ev(x[1]))
 def accum(f,x):
  if not len(x):return()
  def accu_(f,x,y):
@@ -13,14 +15,10 @@ def accum(f,x):
 def scan(x,y,z):
  if x=='+'and y==0:return accum(lambda x,y:x+y,z)
 ad={'\\':scan,'/':None,"'":None}
-def adv(x,y):
- print(x,y)
- if not y:return x
- if len(y)==1:return ad[x[0]](x[1],0,ev(y[0]))
+def adv(x,y,z):return ad[x[0]](x[1],y,z)
 f=sys.stdin
 while 1:
  x=f.readline()
  if not x:break
  x=p(x.strip())
- if type(x[0])==tuple:
-  print(adv(x[0],x[1:]))
+ print(ev(x))

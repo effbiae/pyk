@@ -19,10 +19,14 @@ def ev(x,d):
  print(x);assert(0)
 nn=lambda x:x is not None
 def ar(x):
+ def lar(x):
+  if type(x)==tuple and x[0]!='{':return max(lar(_)for _ in x)
+  if x in "xyz":return "xyz".find(x)+1
+  return 1
  if type(x)==str:return (2,1)[':'in x]
  if type(x)==tuple:
-     if x[0]=='{':return 2
-     return 1
+  if x[0]=='{':return lar(x[1:])
+  return 1
 md=lambda x:dict(zip("xyz"[:len(x)],x))
 def ap(x,y,d):
  if type(x)==str:return (k2,k1)[':'in x](x[0],*y)

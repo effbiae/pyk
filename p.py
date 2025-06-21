@@ -1,4 +1,4 @@
-P=":+-*%!&|<>=~,^#_$?@.";m=["av;","['/\\",P,";)]\n "];c=dict([(chr(x),' ')for x in range(128)])
+P=":+-*%!&|<>=~,^#_$?@.";m=["av;","['/\\",P,";)]}\n "];c=dict([(chr(x),' ')for x in range(128)])
 def f(x,s):
  for a in s:c[a]=x
 for i in range(3):f(m[0][i],m[i+1])
@@ -11,13 +11,13 @@ def n():
  return ' ';
 def q():return ';'==cs(i)
 def E(x):
- while n() in ";[(":
+ while n() in ";[({":
   if type(x)!=tuple:x=(x,)
   x=x+(e(t()),)
  return x
 def t():
  if q():return()
- x=n()if not s[i][0]in'([{'else x[1]if 3>len(x:=E(s[i]))else x
+ x=n()if not s[i][0]in'([{'else x[1]if 3>len(x:=E(s[i]))and x[0]!='{' else x
  while'a'==cs(i):
   x=E(x)if'['==s[i]else(n(),x)
  return x
@@ -74,6 +74,7 @@ def test():
         [       '3+-',("'", ('+', '3', ()),'-') ],
         ['5(+\\|:)\\x',(('\\', ("'", ('\\', '+'), '|:')), '5', 'x') ],
         [    'f::x,0',('::', 'f', (',', 'x', '0')) ],
+        [       '{x}',('{', 'x') ],
         ]:
         if (r:=p(x))!=y:print('!',repr(x),repr(r),'!=',y);sys.exit(1)
 if __name__=='__main__':

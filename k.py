@@ -3,12 +3,12 @@ def k2(x,y,z):
  if x=='+':return y+z
  if x=='>':return y>z
 def k1(x,y):
- return None
+ if x=='!':return tuple(range(y))
 def ev(x):
  if x is None:return x
  try:return int(x)
  except:pass
- if x[0]=='!':return tuple(range(ev(x[1])))
+ if x[0][0]in P:return ap(x[0][0]+(':'if len(x)==2 else ''),(ev(_) for _ in x[1:]))
  if type(x[0])==tuple:
   if len(x)==2:return adv(x[0],None,ev(x[1]))
   else:return adv(x[0],x[1],ev(x[2]))

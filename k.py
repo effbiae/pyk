@@ -36,7 +36,7 @@ def ar(x):
 def ap(x,y,d):
  if type(x)==str:return (k2,k1)[':'in x](x[0],*y)
  if tt(x):
-  if x[0]=='{':return ev((('[',)+x[1:]if len(x)>2 else x[1]),(md(y),d[1:]))
+  if x[0]=='{':return ev((('[',)+x[1:]if len(x)>2 else x[1]),(md(y),d[-1]))
   if x[0]=="'":return ap(x[1],ap(x[2],y,d),d)if x[0]=="'"else ap(x,y,d)
   if len(x)==3 and x[2]==():return ap(x[0],(ev(x[1],d),y[0]),d)
   if len(x)==2:assert(x[0]in"\\/'");return ad[x[0]](x[1],None,y,d)

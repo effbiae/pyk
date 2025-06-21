@@ -21,7 +21,7 @@ def ev(x,d):
  if tt(x[0]):
   if len(x)==2:return adv(x[0],None,ev(x[1],d),d)
   else:return adv(x[0],x[1],ev(x[2],d),d)
- if x in "xyz":return fd(x,d)
+ if x.isalpha():return fd(x,d)
  print(x);assert(0)
 nn=lambda x:x is not None;tt=lambda x:type(x)is tuple;md=lambda x:dict(zip("xyz"[:len(x)],x))
 def ar(x):

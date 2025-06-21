@@ -39,7 +39,6 @@ def acb(f,y,z,d):
  t=z;r=(t,)
  while ap(y,(t,),d):t=ap(f,(t,),d);r+=(t,)
  return r
-def acc(f,y,z,d):r=();t=ev(y,d);t=t if nn(t)else oid(f);[(t:=ap(f,(t,_),d),r:=r+(t,))for _ in z];return r
 def acc(f,y,z,d):
  r=();t=ev(y,d);t=t if nn(t)else oid(f)
  if t is None and len(z):t=z[0];r=(t,);z=z[1:]

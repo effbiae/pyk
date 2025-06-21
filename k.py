@@ -22,7 +22,7 @@ def ar(x):
  def lar(x):
   if tt(x)and x[0]!='{':return max(lar(_)for _ in x)
   if x in "xyz":return "xyz".find(x)+1
-  return 2
+  return 1
  if type(x)==str:return (2,1)[':'in x]
  if tt(x):
   if x[0]=='{':return lar(x[1:])

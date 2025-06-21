@@ -1,4 +1,4 @@
-from p import p,P;import sys
+from p import p,P
 def k2(x,y,z):
  if x=='+':return y+z
  if x=='>':return y>z
@@ -17,17 +17,16 @@ def ev(x,d):
   else:return adv(x[0],x[1],ev(x[2],d),d)
  if x in "xyz":return fd(x,d)
  print(x);assert(0)
-nn=lambda x:x is not None;tt=lambda x:type(x)is tuple
+nn=lambda x:x is not None;tt=lambda x:type(x)is tuple;md=lambda x:dict(zip("xyz"[:len(x)],x))
 def ar(x):
  def lar(x):
   if tt(x)and x[0]!='{':return max(lar(_)for _ in x)
   if x in "xyz":return "xyz".find(x)+1
-  return 1
+  return 2
  if type(x)==str:return (2,1)[':'in x]
  if tt(x):
   if x[0]=='{':return lar(x[1:])
   return 1
-md=lambda x:dict(zip("xyz"[:len(x)],x))
 def ap(x,y,d):
  if type(x)==str:return (k2,k1)[':'in x](x[0],*y)
  if tt(x):
@@ -54,7 +53,7 @@ def t():
  for _ in x.split():eq(*_.split(':'))
 def O(x):print(x,end='');sys.stdout.flush()
 if __name__=='__main__':
- t();f=sys.stdin;g={}
+ t();import sys;f=sys.stdin;g={}
  while 1:
   O(' ')if f.isatty()else();
   x=f.readline()

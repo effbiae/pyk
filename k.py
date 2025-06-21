@@ -12,25 +12,25 @@ def ev(x,d):
  try:return int(x)
  except:pass
  if x[0][0]in P:return ap(x[0][0]+('',':')[len(x)==2],tuple(ev(_,d) for _ in x[1:]),d)
- if type(x[0])==tuple:
+ if tt(x[0]):
   if len(x)==2:return adv(x[0],None,ev(x[1],d),d)
   else:return adv(x[0],x[1],ev(x[2],d),d)
  if x in "xyz":return fd(x,d)
  print(x);assert(0)
-nn=lambda x:x is not None
+nn=lambda x:x is not None;tt=lambda x:type(x)is tuple
 def ar(x):
  def lar(x):
-  if type(x)==tuple and x[0]!='{':return max(lar(_)for _ in x)
+  if tt(x)and x[0]!='{':return max(lar(_)for _ in x)
   if x in "xyz":return "xyz".find(x)+1
   return 1
  if type(x)==str:return (2,1)[':'in x]
- if type(x)==tuple:
+ if tt(x):
   if x[0]=='{':return lar(x[1:])
   return 1
 md=lambda x:dict(zip("xyz"[:len(x)],x))
 def ap(x,y,d):
  if type(x)==str:return (k2,k1)[':'in x](x[0],*y)
- if type(x)==tuple:
+ if tt(x):
   if x[0]=='{':return ev((('[',)+x[1:]if len(x)>2 else x[1]),(md(y),d[1:]))
   if len(x)==3 and x[2]==():return ap(x[0],(ev(x[1],d),y[0]),d)
 def oid(f):

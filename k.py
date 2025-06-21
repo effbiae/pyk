@@ -27,8 +27,10 @@ def ap(x,y):
 def oid(f):
  if f=='+':return 0
 def acb(f,y,z):
- t=z;r=()
- while ap(y,(t,)):r+=(t,);t=ap(f,(t,))
+ t=z;r=(t,)
+ while 1:
+  t=ap(f,(t,));r+=(t,)
+  if not ap(y,(t,)):break
  return r
 def acc(f,y,z):r=();t=ev(y);t=t if nn(t)else oid(f);[(t:=ap(f,(t,_)),r:=r+(t,))for _ in z];return r
 def scan(x,y,z):return (acc,acb)[1==ar(x)](x,y,z)
@@ -37,7 +39,7 @@ ad={'\\':scan,'/':over,"'":None}
 def adv(x,y,z):return ad[x[0]](x[1],y,z)
 def t():
  def eq(x,y):z=ev(p(x));(print(x,'was',z,'not',y),exit(1))if not z==eval(y)else None
- x=r'!2:(0,1) +/!3:3 1+\!3:(1,2,4) (2>)(1+)\0:(0,1)'
+ x=r'!2:(0,1) +/!3:3 1+\!3:(1,2,4) (2>)(1+)\0:(0,1,2)'
  for _ in x.split():eq(*_.split(':'))
 def O(x):print(x,end='');sys.stdout.flush()
 if __name__=='__main__':

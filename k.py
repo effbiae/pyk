@@ -28,9 +28,8 @@ def oid(f):
  if f=='+':return 0
 def acb(f,y,z):
  t=z;r=(t,)
- while 1:
+ while ap(y,(t,)):
   t=ap(f,(t,));r+=(t,)
-  if not ap(y,(t,)):break
  return r
 def acc(f,y,z):r=();t=ev(y);t=t if nn(t)else oid(f);[(t:=ap(f,(t,_)),r:=r+(t,))for _ in z];return r
 def scan(x,y,z):return (acc,acb)[1==ar(x)](x,y,z)

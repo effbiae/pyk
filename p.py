@@ -4,20 +4,20 @@ def f(x,s):
 for i in range(3):f(m[0][i],m[i+1])
 def cs(i):
  if(i<len(s)):return c[s[i][0]]
- return ';'
+ return';'
 def n():
  global i
  if len(s)!=i:i+=1;return s[i-1]
- return ' ';
-def q():return ';'==cs(i)
+ return' ';
+def q():return';'==cs(i)
 def E(x):
- while n() in ";[({":
+ while n()in";[({":
   if type(x)!=tuple:x=(x,)
   x=x+(e(t()),)
  return x
 def t():
  if q():return()
- x=n()if not s[i][0]in'([{'else x[1]if 3>len(x:=E(s[i]))and x[0]!='{' else x
+ x=n()if not s[i][0]in'([{'else x[1]if 3>len(x:=E(s[i]))and x[0]!='{'else x
  while'a'==cs(i):
   x=E(x)if'['==s[i]else(n(),x)
  return x
@@ -31,8 +31,7 @@ def o3(x,y,z):
  if train(z):return("'",(x,y,()),z)
  return (x,y,z)
 def monad(x):
- if type(x)==str and c[x[0]]=='v':
-  return x+':'
+ if type(x)==str and c[x[0]]=='v':return x+':'
  return x
 def o2(x,y):
  if train(y):return("'",monad(x),y)
@@ -53,7 +52,7 @@ def test():
     import sys
     if 0: #generate test cases
         print('[')
-        for x in ["x;y","(x;y)","f[x;y]","x+y","x+*y","1+3*x","(+x)%y","(+/x)%#x","x+m[*i]/y","1+2-","3*:/2","+-","3+-","5(+\\|:)\\x","f::x,0"]:
+        for x in ["x;y","(x;y)","f[x;y]","x+y","x+*y","1+3*x","(+x)%y","(+/x)%#x","x+m[*i]/y","1+2-","3*:/2","+-","3+-","5(+\\|:)\\x","f::x,0","{x}"]:
             print("        [%12s,%s ],"%(x.__repr__(),parse(x)))
         print(']')
     for x,y in [

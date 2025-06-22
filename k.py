@@ -3,6 +3,7 @@ def k2(x,y,z):
  if x=='+':return tuple(y+_ for _ in z)if tt(z)else y+z
  if x=='*':return y*z
  if x=='>':return y>z
+ if x=='#':return tuple(z for _ in range(y))
  if x==',':
   if not tt(y):y=(y,)
   if not tt(z):z=(z,)

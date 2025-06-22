@@ -1,6 +1,7 @@
 from p import p,P
 def k2(x,y,z):
- if x=='+':return y+z
+ if x=='+':return tuple(y+_ for _ in z)if tt(z)else y+z
+ if x=='*':return y*z
  if x=='>':return y>z
  if x==',':
   if not tt(y):y=(y,)
@@ -21,7 +22,7 @@ def ev(x,d):
  if tt(x[0]):
   if len(x)==2:return adv(x[0],None,ev(x[1],d),d)
   else:return adv(x[0],x[1],ev(x[2],d),d)
- if x.isalpha():return fd(x,d)
+ if ts(x)and x.isalpha():return fd(x,d)
  print(x);assert(0)
 nn=lambda x:x is not None;ts=lambda x:type(x)is str;tt=lambda x:type(x)is tuple;md=lambda x:dict(zip("xyz"[:len(x)],x))
 def ar(x):
@@ -53,7 +54,7 @@ def acb(f,y,z,d):
 def acc(f,y,z,d):
  r=();t=ev(y,d);t=t if nn(t)else oid(f)
  if t is None and len(z):t=z[0];r=(t,);z=z[1:]
- return tuple(t:=ap(f,(t,_),d) for _ in z)
+ return r+tuple(t:=ap(f,(t,_),d) for _ in z)
 def scan(x,y,z,d):return(aca if nn(y) and 0==ar(y)and 1==ar(x)else(acc,acb)[1==ar(x)])(x,y,z,d)
 def over(x,y,z,d):x=scan(x,y,z,d);return x[-1]if x else x
 ad={'\\':scan,'/':over,"'":None}

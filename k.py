@@ -23,18 +23,18 @@ def ev(x,d):
   else:return adv(x[0],x[1],ev(x[2],d),d)
  if x.isalpha():return fd(x,d)
  print(x);assert(0)
-nn=lambda x:x is not None;tt=lambda x:type(x)is tuple;md=lambda x:dict(zip("xyz"[:len(x)],x))
+nn=lambda x:x is not None;ts=lambda x:type(x)is str;tt=lambda x:type(x)is tuple;md=lambda x:dict(zip("xyz"[:len(x)],x))
 def ar(x):
  def lar(x):
   if tt(x)and x[0]!='{':return max(lar(_)for _ in x)
   if x in "xyz":return "xyz".find(x)+1
   return 1
- if type(x)==str and x[0]in P:return (2,1)[':'in x]
+ if ts(x)and x[0]in P:return (2,1)[':'in x]
  def car(x):return car(x[2])if tt(x)else ar(x)
  if tt(x):return lar(x[1:]) if x[0]=='{'else car(x)if x[0]=="'"else 1
  return 0
 def ap(x,y,d):
- if type(x)==str:return (k2,k1)[':'in x](x[0],*y)
+ if ts(x):return (k2,k1)[':'in x](x[0],*y)
  if tt(x):
   if x[0]=='{':return ev((('[',)+x[1:]if len(x)>2 else x[1]),(md(y),d[-1]))
   if x[0]=="'":return ap(x[1],ap(x[2],y,d),d)

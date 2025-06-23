@@ -42,8 +42,7 @@ def ap(x,y,d):
   if x[0]=="'":return ap(x[1],ap(x[2],y,d),d)
   if len(x)==3 and x[2]==():return ap(x[0],(ev(x[1],d),y[0]),d)
   if len(x)==2:assert(x[0]in"\\/'");return ad[x[0]](x[1],None,y,d)
-def oid(f):
- if f=='+':return 0
+def oid(f):return 0 if f=='+'else 1 if f=='*'else None
 def aca(f,y,z,d):
  t=z;r=(t,)
  for _ in range(ev(y,d)):t=ap(f,(t,),d);r+=(t,)
@@ -54,9 +53,10 @@ def acb(f,y,z,d):
  return r
 def acc(f,y,z,d):
  r=();t=ev(y,d);t=t if nn(t)else oid(f)
- if t is None and len(z):t=z[0];r=(t,);z=z[1:]
+ if not len(z):return()if t is None else(t,)
+ if t is None:t=z[0];r=(t,);z=z[1:]
  return r+tuple(t:=ap(f,(t,_),d) for _ in z)
-def scan(x,y,z,d):return(aca if nn(y) and 0==ar(y)and 1==ar(x)else(acc,acb)[1==ar(x)])(x,y,z,d)
+def scan(x,y,z,d):return(aca if nn(y)and 0==ar(y)and 1==ar(x)else(acc,acb)[1==ar(x)])(x,y,z,d)
 def over(x,y,z,d):x=scan(x,y,z,d);return x[-1]if x else x
 ad={'\\':scan,'/':over,"'":None}
 def adv(x,y,z,d):return ad[x[0]](x[1],y,z,d)

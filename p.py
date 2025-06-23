@@ -11,15 +11,14 @@ def n():
  return' ';
 def q():return';'==cs(i)
 def E(x):
+ x=(x,)
  while n()in";[({":
-  if type(x)!=tuple:x=(x,)
   x=x+(e(t()),)
  return x
 def t():
  if q():return()
  x=n()if not s[i][0]in'([{'else x[1]if 3>len(x:=E(s[i]))and x[0]!='{'else x
- while'a'==cs(i):
-  x=E(x)if'['==s[i]else(n(),x)
+ while'a'==cs(i):x=E(x)if'['==s[i]else(n(),x)
  return x
 def verb(x):#primitive or derived verb?
  if type(x)==str and len(x)>0:return c[x[0]]=='v'

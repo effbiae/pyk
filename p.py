@@ -12,8 +12,7 @@ def n():
 def q():return';'==cs(i)
 def E(x):
  x=(x,)
- while n()in";[({":
-  x=x+(e(t()),)
+ while n()in";[({":x=x+(e(t()),)
  return x
 def t():
  if q():return()

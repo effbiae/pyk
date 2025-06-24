@@ -33,10 +33,10 @@ def ar(x):
   return 1
  if ts(x)and x[0]in P:return (2,1)[':'in x]
  def car(x):return car(x[2])if tt(x)else ar(x)
- if tt(x):return lar(x[1:]) if x[0]=='{'else car(x)if x[0]=="'"else 1
+ if tt(x):return lar(x[1:])if x[0]=='{'else car(x)if x[0]=="'"else 1
  return 0
 def ap(x,y,d):
- if ts(x):return (k2,k1)[':'in x](x[0],*y)
+ if ts(x):return(k2,k1)[':'in x](x[0],*y)
  if tt(x):
   if x[0]=='{':return ev((('[',)+x[1:]if len(x)>2 else x[1]),(md(y),d[-1]))
   if x[0]=="'":return ap(x[1],ap(x[2],y,d),d)
@@ -69,7 +69,5 @@ if __name__=='__main__':
  t();import sys;f=sys.stdin;g={}
  while 1:
   O(' ')if f.isatty()else();
-  x=f.readline()
-  if not x:break
-  x=p(x.strip())
-  print(ev(x,(g,)))
+  if x:=f.readline():print(ev(p(x.strip()),(g,)))
+  else:break
